@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Title</title>
+  <title>PHP Dischi</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,15 +23,38 @@
 
 <body>
 
-  <div id="app">
+  <div id='app'>
     <header>
-      <!-- place navbar here -->
     </header>
     <main>
+      <div class="d-flex justify-content-center my-3">
+        <select class="w-25" v-model="selectGenere" @change="ricercaProdotti">
+          <option value="tutti">Tutti i generi</option>
+          <option :value="elem" v-for="(elem, index) in arrayGeneri">{{ elem }}</option>
+        </select>
+      </div>
 
+
+      <div class="container">
+        <div class="row">
+          <div class="col-4" v-for="(elem, index) in arrayDischi" :key="index">
+            <div class="card w-75 mb-2">
+              <img :src="elem.poster" :alt="elem.title">
+              <div class="m-3">
+                <h5>{{ elem.author }}</h5>
+                <p>
+                  {{ elem.title }}
+                </p>
+                <p>
+                  {{elem.year}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
-      <!-- place footer here -->
     </footer>
   </div>
 
@@ -50,7 +73,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js'
     integrity='sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg=='
     crossorigin='anonymous' referrerpolicy='no-referrer'>
-  </script>
+    </script>
 
   <!-- MY SCRIPT -->
   <script src="./assets/js/main.js"></script>
